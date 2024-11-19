@@ -120,6 +120,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 1;
+    cursor: pointer;
 }
 .nav-content-icons .fa-heart::after{
     content: var(--whishlist-content, '0');
@@ -136,6 +137,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 1;
+    cursor: pointer;
 }
 
 .heading-content{
