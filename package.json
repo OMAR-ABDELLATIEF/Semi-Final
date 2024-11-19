@@ -1,0 +1,15 @@
+{
+  "name": "semi-final",
+  "version": "1.0.0",
+  "description": "semi-final project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "db": "npx json-server --watch ./DATA/db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
