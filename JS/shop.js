@@ -2,12 +2,9 @@ const links = document.querySelectorAll('.nav-content-links li');
 const menuBar = document.querySelector('.tab-menu');
 const cartIcon = document.querySelector('.nav-content-icons .fa-cart-shopping');
 const whishlistIcon = document.querySelector('.nav-content-icons .fa-heart');
-const cartIconAfter = window.getComputedStyle(cartIcon,'::after');
-const whishlistIconAfter = window.getComputedStyle(whishlistIcon,'::after');
-const cartIconCounter = cartIconAfter.getPropertyValue('content');
 const exitMenu = document.querySelector('.menu-exit-icon');
 const menu = document.querySelector('.menu-links');
-const categories_container = document.querySelector('.Shop-by-categories');
+const categories_container = document.querySelector('.category-wrapper');
 const products_container = document.querySelector('.Shop-by-category-products');
 
 
@@ -30,6 +27,7 @@ async function getProducts(){
     const response = await fetch(`${BASE_URL}/products`);
     const data = await response.json();
     products=data;
+    localStorage.setItem("products", JSON.stringify(products));
 }
 async function getCatProducts(categorySlug){
     const response = await fetch(`${BASE_URL}/products?categorySlug=${categorySlug}`);
@@ -48,13 +46,13 @@ async function displayCategory(categories){
     await categories.forEach(category => {
         const isActive = category.slug == categorySlug ? "active" : "";
         categories_container.innerHTML += `
-                    <div class="category">
-                        <div class="category-img ${isActive}">
-                            <img src="${category.img}" alt="${category.name}">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h2>${category.name}</h2>
+                <div class="category swiper-slide">
+                    <div class="category-img ${isActive}">
+                        <img src="${category.img}" alt="${category.name}">
+                        <i class="fas fa-check"></i>
                     </div>
+                    <h2>${category.name}</h2>
+                </div>
     `
     });
     const category = document.querySelectorAll('.category-img');
@@ -166,8 +164,6 @@ function removeFromWhishlist(index) {
     if (wishlistIndex !== -1) {
         whishlist.splice(wishlistIndex, 1);
     }
-    
-    console.log(whishlist);
     localStorage.setItem('whishlist', JSON.stringify(whishlist));
     whishlistIcon.style.setProperty('--whishlist-content', `"${JSON.parse(localStorage.getItem('whishlist')).length}"`);
 }
@@ -254,4 +250,35 @@ whishlistIcon.addEventListener('click',() =>{
     window.location.assign("../whishlist.html");
 });
 
-const swiper = new Swiper('.categories-swiper')
+const swiper = new Swiper('.category-content', {
+    // Default parameters
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loopFillGroupWithBlank: true,
+    pagination:{
+        el:".swiper-pagination",
+        clickable: true,
+    },
+    // Responsive breakpoints
+    breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 290
+        },
+        // when window width is >= 480px
+        721: {
+          slidesPerView: 3,
+          spaceBetween: 5,
+        },
+        // when window width is >= 640px
+        950: {
+          slidesPerView: 3,
+          spaceBetween: 40
+        },
+        1080: {
+          slidesPerView: 4,
+          spaceBetween: 120
+        }
+      }
+  })

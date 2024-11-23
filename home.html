@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Eat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="styles/home.css">
+
 </head>
 <body>
     <section class="heading container">
@@ -47,104 +49,17 @@
                 <h2>Most Selling</h2>
                 <h1>Most Selling</h1>
             </div>
-            <div class="most-selling-products">
-                <div class="product">
-                    <div class="product-img">
-                        <img src="images/main.jpg" alt="Burger">
-                        <div class="img-icon d-block">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="img-icon-unfavourite d-none">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="product-cost-rate">
-                        <h2>150 EG</h2>
-                        <i class="fas fa-star"><span>4.5</span></i>
-                    </div>
-                    <div class="product-info">
-                        <h2>Pork Chop with Apple Chutney</h2>
-                        <div class="product-info-icons">
-                            <i class="fa-regular fa-circle-check"><span>4 Pieces</span></i>
-                            <i class="fa-regular fa-circle-check"><span>Spicy Sauce</span></i>
-                        </div>
-                        <button>Add to Cart</button>
+            <div class="most-selling-products swiper">
+                <div class="category-content">        
+                    <div class="category-wrapper swiper-wrapper">
                     </div>
                 </div>
-                <div class="product">
-                    <div class="product-img">
-                        <img src="images/main.jpg" alt="Burger">
-                        <div class="img-icon d-block">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="img-icon-unfavourite d-none">
-                            <i class="fas fa-heart"></i>
-                        </div>
+                <div class="swiper-content">
+                    <div class="swiper-scrollbar"></div>
+                    <div class="slider-arrow">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-                    <div class="product-cost-rate">
-                        <h2>150 EG</h2>
-                        <i class="fas fa-star"><span>4.5</span></i>
-                    </div>
-                    <div class="product-info">
-                        <h2>Pork Chop with Apple Chutney</h2>
-                        <div class="product-info-icons">
-                            <i class="fa-regular fa-circle-check"><span>4 Pieces</span></i>
-                            <i class="fa-regular fa-circle-check"><span>Spicy Sauce</span></i>
-                        </div>
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-img">
-                        <img src="images/main.jpg" alt="Burger">
-                        <div class="img-icon d-block">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="img-icon-unfavourite d-none">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="product-cost-rate">
-                        <h2>150 EG</h2>
-                        <i class="fas fa-star"><span>4.5</span></i>
-                    </div>
-                    <div class="product-info">
-                        <h2>Pork Chop with Apple Chutney</h2>
-                        <div class="product-info-icons">
-                            <i class="fa-regular fa-circle-check"><span>4 Pieces</span></i>
-                            <i class="fa-regular fa-circle-check"><span>Spicy Sauce</span></i>
-                        </div>
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-img">
-                        <img src="images/main.jpg" alt="Burger">
-                        <div class="img-icon d-block">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <div class="img-icon-unfavourite d-none">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                    </div>
-                    <div class="product-cost-rate">
-                        <h2>150 EG</h2>
-                        <i class="fas fa-star"><span>4.5</span></i>
-                    </div>
-                    <div class="product-info">
-                        <h2>Pork Chop with Apple Chutney</h2>
-                        <div class="product-info-icons">
-                            <i class="fa-regular fa-circle-check"><span>4 Pieces</span></i>
-                            <i class="fa-regular fa-circle-check"><span>Spicy Sauce</span></i>
-                        </div>
-                        <button>Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="slider-arrows">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <i class="fa-solid fa-arrow-right"></i>
                 </div>
             </div>
     </section>
@@ -158,6 +73,7 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/999c781b8f.js" crossorigin="anonymous"></script>    
     <script src="JS/home.js"></script>

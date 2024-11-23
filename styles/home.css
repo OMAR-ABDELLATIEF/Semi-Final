@@ -103,11 +103,11 @@ body{
     background-color: transparent;
     border: 1px solid var(--main-color);
     padding: 0.6em;
+    cursor: pointer;
     border-radius: 50%;
 }
-
-.nav-content-icons i:after{
-    content: "0";
+.nav-content-icons .fa-cart-shopping::after{
+    content: var(--cart-content, '0');
     font-size: .8em;
     color: var(--main-color);
     position: absolute;
@@ -121,6 +121,23 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 1;
+}
+.nav-content-icons .fa-heart::after{
+    content: var(--whishlist-content, '0');
+    font-size: .8em;
+    color: var(--main-color);
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: var(--secondary-color);
+    border-radius: 25px;
+    top: -12px;
+    right: -9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    
 }
 
 .heading-content{
@@ -185,13 +202,47 @@ body{
     line-height: 1.875em;
 }
 .most-selling-products{
-    width: 115%;
+    width: 100%;
     display: flex;
+    flex-direction: row;
     gap: 2.5em;
     align-items: center;
-    position: relative;
-    left: -7em;
+    padding-inline: 2em;
     transition: .4s width;
+    height: 100vh;
+}
+.category-content{
+    width: 100%;
+    margin-bottom: 5em;
+}
+
+.category-wrapper{
+    width: 100%;
+}
+.swiper-scrollbar{
+    background-color: #FFFFFF33;
+    position: absolute;
+    left: 0;
+    width: 55%;
+    top: 1em;
+}
+.swiper-scrollbar-drag{
+    background-color: var(--secondary-color);
+}
+.slider-arrow{
+    background-color: #D62828;
+    display: flex;
+    width: 25%;
+    position: absolute;
+    right: 0;
+    bottom: 1em;
+}
+.swiper-content{
+    width: 100%;
+    display: flex;
+    gap: 1em;
+    background-color: #D62828;
+    padding-inline: 2em;
 }
 .product{
     background-color: #1D1D1D;
@@ -201,7 +252,7 @@ body{
     height: 100%;
     position: relative;
 }
-.product:nth-child(3):after{
+.new:after{
     content: "New";
     position: absolute;
     width: fit-content;
@@ -226,7 +277,7 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: matrix(1.7, 0, 0, 1.7, 0, 65.5);
+    cursor: pointer;
 }
 
 .img-icon{
@@ -291,10 +342,12 @@ body{
     color: var(--secondary-color);
     font-size: 1.5em;
     font-weight: 600;
+    transition: .4s font-size;
 }
 .product-cost-rate i{
     color: #FFD700;
     font-size: 1.4em;
+    transition: .4s font-size;
 }
 .product-cost-rate i span{
     font-size: 1em;
@@ -304,6 +357,7 @@ body{
     font-weight: 400;
     opacity: 89%;
     vertical-align: .01em;
+    transition: .4s font-size;
 }
 
 .product-cost-rate::after{
@@ -329,6 +383,8 @@ body{
     font-weight: 600;
     text-transform: uppercase;
     word-spacing: .1em;
+    height: 5vh;
+    cursor: pointer;
 }
 .product-info-icons{
     display: flex;
@@ -344,6 +400,7 @@ body{
     font-size: .75em;
     padding-left: 0.8em;
     font-weight: 400;
+    transition: .4s font-size;
 }
 .product-info button{
     color: #FFFFFF80;
@@ -354,6 +411,7 @@ body{
     cursor: pointer;
     font-size: 1.1em;
     transition: .4s border-color, .4s color;
+    transition: .4s border-color, .4s color , .4s font-size;
 }
 
 .product-info button:hover{
@@ -374,6 +432,7 @@ body{
     justify-content: end;
     align-items: center;
     height: 75px;
+    transition: .4s display;
 }
 
 .slider-arrows i{
@@ -406,6 +465,7 @@ body{
     transform: translateY(-50%);
     border-radius: 25px;
     z-index: 1;
+    transition: .4s;
 }   
 .slider-arrows::after{
     content: "";
@@ -419,6 +479,7 @@ body{
     border-radius: 25px;
     z-index: 1;
     transition: .4s width;
+    transition: .4s;
 }   
 .video-content{
     width: 100%;
@@ -473,9 +534,6 @@ body{
     }
 }
 @media (max-width: 1024px) {
-    .most-selling-products{
-        width: 150%;
-    }
     .slider-arrows::after{
         width: 35%;
     }
@@ -496,9 +554,6 @@ body{
     .heading-content button{
         font-size: 1em;
         padding: .4em 1.5em;
-    }
-    .most-selling-products{
-        width: 200%;
     }
 }
 
@@ -561,20 +616,6 @@ body{
         height: fit-content;
     }
     .most-selling-products{
-        width: 100%;
-        padding-inline: 1.5em;
-        flex-wrap: wrap;
-        left: 0;
-    }
-    .product{
-        width: calc((100% - 2.5em * 1) / 2);
-    }
-    .slider-arrows i{
-        display: none;
-    }
-    .slider-arrows::before,
-    .slider-arrows::after{
-        display: none;
     }
     .video-content{
         height: 70vh;
